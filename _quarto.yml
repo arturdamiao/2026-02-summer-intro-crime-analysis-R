@@ -24,6 +24,7 @@ book:
   chapters:
     - text: "Página inicial"
       href: index.qmd  
+    - href: instalacao.qmd
 
 page-navigation: true
 
@@ -38,7 +39,7 @@ page-footer:
 format:
   html:
 #    theme: cosmo
-#    css: styles.css
+    css: styles.css
     toc: true
     toc-depth: 5
     link-external-icon: false

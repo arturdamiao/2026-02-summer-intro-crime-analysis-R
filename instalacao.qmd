@@ -1,5 +1,5 @@
 ---
-title: "Instalações e outros preparativos"
+title: "Pré-curso: Instalação e Ambientação"
 code-annotations: hover
 ---
 
