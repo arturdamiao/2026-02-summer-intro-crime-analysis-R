@@ -14,6 +14,7 @@ book:
   site-url: "https://arturdamiao.github.io/2026-02-summer-intro-crime-analysis-R/"
   repo-url: "https://github.com/arturdamiao/2026-02-summer-intro-crime-analysis-R"
   navbar:
+    logo: logo_en.png
     right: 
       - text: "Materiais"
         menu:
