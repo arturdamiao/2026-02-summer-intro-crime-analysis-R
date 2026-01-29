@@ -27,10 +27,13 @@ book:
     - part: "Pré-curso"
       chapters:
         - index.qmd
-        - instalacao.qmd
+        - chapters/instalacao.qmd
     - part: "Como analisar dados criminais?"
       chapters:
-        - 01-introducao.qmd
+        - chapters/01-introducao.qmd
+    - part: "O caso de São Paulo"
+      chapters: 
+        - chapters/03-importando-dados.qmd
 
 
   # - part: "Pré-curso"
