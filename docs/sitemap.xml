@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://arturdamiao.github.io/2026-02-summer-intro-crime-analysis-R/index.html</loc>
-    <lastmod>2026-01-21T21:47:29.929Z</lastmod>
+    <lastmod>2026-02-02T19:03:09.990Z</lastmod>
   </url>
   <url>
     <loc>https://arturdamiao.github.io/2026-02-summer-intro-crime-analysis-R/instalacao.html</loc>
@@ -23,5 +23,9 @@
   <url>
     <loc>https://arturdamiao.github.io/2026-02-summer-intro-crime-analysis-R/chapters/01-introducao.html</loc>
     <lastmod>2026-01-21T22:11:03.613Z</lastmod>
+  </url>
+  <url>
+    <loc>https://arturdamiao.github.io/2026-02-summer-intro-crime-analysis-R/chapters/02-conhecendo-o-R.html</loc>
+    <lastmod>2026-02-02T19:17:41.259Z</lastmod>
   </url>
 </urlset>

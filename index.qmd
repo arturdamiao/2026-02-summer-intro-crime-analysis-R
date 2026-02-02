@@ -12,9 +12,11 @@ O curso será realizado de forma remota, com aulas ao vivo e atividades prática
 
 Além deste site, o material do curso também é composto por:
 
-- [Scripts em R que foram utilizados nas aulas](https://github.com/arturdamiao/2026-02-summer-intro-crime-analysis-R).
+- [Scripts em R que foram utilizados nas aulas](https://github.com/arturdamiao/2026-02-summer-intro-crime-analysis-R/tree/main/scripts).
 
 - Gravação das aulas, no YouTube.
+
+- [Slides](https://github.com/arturdamiao/2026-02-summer-intro-crime-analysis-R/tree/main/slides). 
 
 
 :::{.callout-note}

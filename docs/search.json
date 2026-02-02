@@ -15,7 +15,7 @@
     "href": "index.html#introdução",
     "title": "Análise de dados criminais usando linguagem R",
     "section": "",
-    "text": "Scripts em R que foram utilizados nas aulas.\nGravação das aulas, no YouTube.\n\n\n\n\n\n\n\nNota\n\n\n\nRecomendamos que todas as pessoas participantes que verifiquem a página Instruções de instalação antes do início do curso.\nCaso tenha alguma dificuldade, entre em contato com o instrutor do curso antes do início das aulas.",
+    "text": "Scripts em R que foram utilizados nas aulas.\nGravação das aulas, no YouTube.\nSlides.\n\n\n\n\n\n\n\nNota\n\n\n\nRecomendamos que todas as pessoas participantes que verifiquem a página Instruções de instalação antes do início do curso.\nCaso tenha alguma dificuldade, entre em contato com o instrutor do curso antes do início das aulas.",
     "crumbs": [
       "Pré-curso",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise de dados criminais usando linguagem R</span>"
@@ -195,6 +195,270 @@
     "crumbs": [
       "O caso de São Paulo",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Analisando dados da Secretaria de Segurança Pública</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html",
+    "href": "chapters/02-conhecendo-o-R.html",
+    "title": "4  Conhecendo o R",
+    "section": "",
+    "text": "4.1 Informações gerais",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#informações-gerais",
+    "href": "chapters/02-conhecendo-o-R.html#informações-gerais",
+    "title": "4  Conhecendo o R",
+    "section": "",
+    "text": "Data/horário: 02 a 06 de fevereiro/2026;\n\nTodos os dias da semana: aula ao vivo, on-line, das 18h00 às 20h00.\nTodo estudo adional é encorajado.",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#as-vantagens-de-analisar-dados-usando-linguagens-de-programação",
+    "href": "chapters/02-conhecendo-o-R.html#as-vantagens-de-analisar-dados-usando-linguagens-de-programação",
+    "title": "4  Conhecendo o R",
+    "section": "4.2 As vantagens de analisar dados usando linguagens de programação",
+    "text": "4.2 As vantagens de analisar dados usando linguagens de programação\n\nO código é uma linguagem, então podemos documentar os passos da nossa análise. Isso é, escrever, linha à linha, os passos do processo de análise.\nO código é texto, então podemos copiar e colar, facilitando enormemente a transposição do código para novos casos.\nAs linguagens de programação para ciência de dados mais utilizadas são de código aberto, em especial R, com dominância em certos nichos acadêmicos, e Pyhton, com popularidade ascentende e mais utilizado no universo corporativo.\n\nFora do Brasil, é mais comum empresas de ponta utilizarem o R ao invés de Python.\n\nAlternativas proprietárias (fechadas, controladas por empresas que cobram por licenças ou assinatura) incluem softwares como Stata, SAS, SPSS, entre outras. Ou seja, mais custo para o negócio.",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#o-que-significa-ser-código-aberto-e-software-livre",
+    "href": "chapters/02-conhecendo-o-R.html#o-que-significa-ser-código-aberto-e-software-livre",
+    "title": "4  Conhecendo o R",
+    "section": "4.3 O que significa ser código aberto e software livre?",
+    "text": "4.3 O que significa ser código aberto e software livre?\n\nFree Software como em “liberdade” não como em “grátis”. Na prática temos acesso gratuito (na maioria dos casos). Os usuários podem modificar e aperfeiçoar o código-fonte.\nAs pessoas podem acessar as ferramentas, tendo as condições mínimas em termos de hardware e conhecimento, independente de poderem pagar uma licensa de uso.\nEstudantes podem usar software semelhante ao de profissionais.\nVocê pode corrigir problemas e aprimorar a linguagem e eventualmente contribuir e modificar o projeto principal.\nVocê pode desenvolver suas próprias ferramentas.\nPossibilita a existência de uma comunidade ativa.",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#por-quê-o-r",
+    "href": "chapters/02-conhecendo-o-R.html#por-quê-o-r",
+    "title": "4  Conhecendo o R",
+    "section": "4.4 Por quê o R?",
+    "text": "4.4 Por quê o R?\n\n4.4.1 O ciclo da ciência de dados\n\n\n\nO ciclo da Ciência de Dados\n\n\n\n\n4.4.2 O ciclo da ciência de dados com o R\n\n\n\nO ciclo da Ciência de Dados no R",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#por-quê-usar-o-r",
+    "href": "chapters/02-conhecendo-o-R.html#por-quê-usar-o-r",
+    "title": "4  Conhecendo o R",
+    "section": "4.5 Por quê usar o R?",
+    "text": "4.5 Por quê usar o R?\n\nÉ uma linguagem de programação que possui muitas ferramentas para análise de dados\nÉ código aberto (open source)\nPossui uma comunidade ativa de pessoas desenvolvedoras\nÉ flexível, permite desenvolver funções e pacotes para facilitar o trabalho\nEstá disponível, gratuitamente, em diferentes plataformas: Windows, Linux e Mac\nMantido pela R Development Core Team",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#um-exemplo-prático-e-cotidiano",
+    "href": "chapters/02-conhecendo-o-R.html#um-exemplo-prático-e-cotidiano",
+    "title": "4  Conhecendo o R",
+    "section": "5.1 Um exemplo prático e cotidiano",
+    "text": "5.1 Um exemplo prático e cotidiano\n\nVocês já tentaram repetir uma análise feita meses atrás e não lembraram como chegaram no resultado?\nJá recebeu uma planilha e não entendeu como a pessoa chegou naqueles resultados, já que faltam passos claros de como executar a análise?\nVocê já ficou “irritado” de ter que fazer toda uma análise, que parece MUITO com alguma outra que você já fez mas que só mudou a variável de interesse?\nIsso conecta com a experiência comum de quem lida com dados;\nReprodutibilidade é como pensar no seu eu do futuro e na sua equipe: todo mundo deve ser capaz de apertar Run e obter exatamente o mesmo resultado.",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#por-que-isso-é-importante",
+    "href": "chapters/02-conhecendo-o-R.html#por-que-isso-é-importante",
+    "title": "4  Conhecendo o R",
+    "section": "5.2 Por que isso é importante?",
+    "text": "5.2 Por que isso é importante?\n\nValidação do conhecimento: Permite confirmar resultados e aumentar a credibilidade científica;\n\nTransparência e confiança: Exige documentação clara de métodos, dados e códigos;\n\nAcúmulo de conhecimento: Garante que novas pesquisas possam se apoiar em resultados anteriores;\n\nCorreção de erros e vieses: Facilita a detecção de falhas metodológicas ou fraudes;\n\nFormação de analistas e pesquisadores: Reproduzir estudos é parte essencial do aprendizado científico;",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#ok-e-qual-a-relação-com-o-curso-de-r",
+    "href": "chapters/02-conhecendo-o-R.html#ok-e-qual-a-relação-com-o-curso-de-r",
+    "title": "4  Conhecendo o R",
+    "section": "5.3 Ok e qual a relação com o curso de R?",
+    "text": "5.3 Ok e qual a relação com o curso de R?\n\nQueremos mostrar que aprender R não é só “programar”, mas se alinhar com boas práticas;\nUsar R significa estar preparado para dialogar com transparência em todos os ambientes;\nVamos aprender a preparar scripts que visam documentar todo o processo.",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#por-que-a-reprodutibilidade-é-fundamental",
+    "href": "chapters/02-conhecendo-o-R.html#por-que-a-reprodutibilidade-é-fundamental",
+    "title": "4  Conhecendo o R",
+    "section": "5.4 Por que a reprodutibilidade é fundamental?",
+    "text": "5.4 Por que a reprodutibilidade é fundamental?\n\n5.4.1 Em resumo\n\nA reprodutibilidade é um pilar ético e epistemológico da ciência, pois assegura que o conhecimento seja verificável e coletivo, não apenas dependente da autoridade de um pesquisador.",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#plano-das-aulas",
+    "href": "chapters/02-conhecendo-o-R.html#plano-das-aulas",
+    "title": "4  Conhecendo o R",
+    "section": "5.5 Plano das aulas",
+    "text": "5.5 Plano das aulas\n\nTemas:\n\nAula 01: Apresentação e motivação do curso\n\nConfiguração e Ambientação dentro do RStudio\nPrimeiros passos e conceitos fundamentais\n\nAula 02:Manipulação de dados, parte 1\nAula 03:Manipulação de dados, parte 2\nAula 04: Visualização com {ggplot2}\n\nRelatórios dinâmicos com Quarto\n\nAula 05: Mapas e variáveis demográficas",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#conhecendo-o-rstudio",
+    "href": "chapters/02-conhecendo-o-R.html#conhecendo-o-rstudio",
+    "title": "4  Conhecendo o R",
+    "section": "6.1 Conhecendo o Rstudio",
+    "text": "6.1 Conhecendo o Rstudio\n\n\n\nO Rstudio\n\n\n\nO RStudio apresenta 04 quadrantes:\n\nEditor/Script: é onde passaremos a maior parte do tempo.\nConsole: é onde os códigos são “enviados” e onde obtemos as respostas. Este é o R!\nOs outros painéis são auxilares:\n\nEnvironment: painel com os objetos criados na sessão;\nHistory: painel com o histórico de comandos executados;\nFiles: é como se fosse a Área de Trabalho do seu computador. Mostra os arquivos;\nPlots: autoexplicativo. É onde as imagens geradas aparecem;\nPackages: janela para encontrar a documentação dos pacotes e funções;\nViewr: Onde relatórios e dashboards aparecem.",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#atenção",
+    "href": "chapters/02-conhecendo-o-R.html#atenção",
+    "title": "4  Conhecendo o R",
+    "section": "6.2 Atenção!",
+    "text": "6.2 Atenção!\n\n\n\n\n\n\nAviso\n\n\n\nO RStudio é um pai coruja 🦉. Isso significa que ele vai querer te lembrar de TODOS os comandos que você executou anteriormente. Isso é salvo em dois arquivos ocultos: .RData (guarda os objetos de uma sessão) e .Rhistory (abriga todos os comandos executados).\n\n\nQual o problema disso, então?\n\nTe acostuma mal\nFaz com que você conte com sua sorte! ☘\nDificulta a reprodutibilidade\n\n\nAfinal, você não precisa se preocupar em fazer um código legível, porque sempre contará com a facilidade de ter os objetos e comandos salvos.\n\n\nO uso do .RData pode fazer com que seu ambiente de trabalho fique muito pesado!\n\n\nIsso porque ele vai salvar todas as suas bases de dados, independente do tamanho.\nLogo, você terá muito mais lentidão ao iniciar o RStudio, dependendo das configurações de seu computador.",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#como-desativar",
+    "href": "chapters/02-conhecendo-o-R.html#como-desativar",
+    "title": "4  Conhecendo o R",
+    "section": "6.3 Como desativar?1",
+    "text": "6.3 Como desativar?1\n\n\n\n\n\n\n\n\n\nVá em Tools -&gt; Global options... -&gt; General\nPronto! Agora você vai garantir um ambiente de trabalho eficiente e reprodutível.\n\n\nSe acostumar com sessões efêmeras não é uma tarefa fácil e um desconforto inicial é esperado. Pode ser que você ache entediante executar o mesmo código toda vez que abrir seu RStudio, mas é importante ter em mente que esse programa só está lá e pode ser executado inúmeras vezes porque o R não estará mais fazendo o seu trabalho. Zen do R, capítulo 2",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#o-básico-do-r",
+    "href": "chapters/02-conhecendo-o-R.html#o-básico-do-r",
+    "title": "4  Conhecendo o R",
+    "section": "7.1 O Básico do R",
+    "text": "7.1 O Básico do R\nVamos para o quadrante do Editor/Script no RStudio. Se somarmos, por exemplo, 1 + 1, veremos que o R nos retorna [1] 2.\n\n1 + 1\n\n[1] 2\n\n# Se você usar uma \"#\", o código fica comentado. Ou seja, é só um texto! \n\n# 1 + 1 \n\n\nSe colocarmos uma # antes do código, nós estamos comentando ele.\n\nAssim, o código não é executado.\nComentar o código é bom para documentar a análise!\n\nAfinal, a tendência é nós esquecermos as coisas. Portanto, uma boa prática é deixar o registro do que fizemos!\nPS: os seus colegas podem se beneficiar disso também. 😉",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#r-como-calculadora",
+    "href": "chapters/02-conhecendo-o-R.html#r-como-calculadora",
+    "title": "4  Conhecendo o R",
+    "section": "7.2 R como calculadora",
+    "text": "7.2 R como calculadora\nTodas as operações possíveis!\n\n# adição\n1 + 1\n\n[1] 2\n\n# subtração\n4 - 2\n\n[1] 2\n\n# multiplicação\n2 * 3\n\n[1] 6\n\n# divisão\n5 / 3\n\n[1] 1.666667\n\n# potência\n4 ^ 2\n\n[1] 16\n\n# resto da divisão de 10 por 3\n10 %% 3\n\n[1] 1\n\n# parte inteira da divisão de 10 por 3\n10 %/% 3  \n\n[1] 3\n\n\nAssim como na matemática, a divisão e a multiplicação são calculadas antes da adição e da subtração! De qualquer forma, usar os parênteses nunca é demais.\n\n50 + 1 * 8\n\n[1] 58\n\n\nÉ o mesmo que:\n\n50 + (1 * 8)\n\n[1] 58\n\n\nE diferente de :\n\n(50 + 1) * 8\n\n[1] 408\n\n\n\n\n\n\n\n\nDica\n\n\n\nNo Script, ao final da linha de código, você pode executar CTRL + ENTER. Este é o atalho para rodar, avaliar ou executar o seu código! Você vera a resposta diretamente no Console.",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#objetos-vetores-e-funções",
+    "href": "chapters/02-conhecendo-o-R.html#objetos-vetores-e-funções",
+    "title": "4  Conhecendo o R",
+    "section": "7.3 Objetos, vetores e funções",
+    "text": "7.3 Objetos, vetores e funções\n\n7.3.1 Objetos\nGrosso modo, objetos são nomes que guardam informações. Tabelas, números, funções etc. Para criar um objeto, basta usar os operadores &lt;- ou =.\n\nx &lt;- 1 # Leia-se: atribuo o valor 1 ao objeto x\ny = 2  # Leia-se: atribuo o valor 2 ao objeto y\n\nX &lt;- 2 \n\n\n\n\n\n\n\nDica\n\n\n\nNa comunidade R, a convenção é usarmos o sinal &lt;- ao invés do sinal de =. Na maioria dos casos, se você usar &lt;- ou =, vai obter o mesmo resultado. Entretanto, o sinal de igualdade é reservado para funções dentro do R. O atalho para o sinal de atribuição &lt;- é ALT -.\n\n\n\n\n\n7.3.2 O R é sensível 😭😱\n\n7.3.2.1 O que isso quer dizer?\nO R diferencia letras maiúsculas e minúsculas. Tecnicamente, dizemos que o R é case sensitive.\n\nx \n\n[1] 1\n\n# é diferente de  \n\nX\n\n[1] 2\n\n\n\nmeu_objeto &lt;- c(1:10)\n\nMeu_objeto &lt;- c(11:20)\n\n\nmeu_objeto \n\n [1]  1  2  3  4  5  6  7  8  9 10\n\nMeu_objeto\n\n [1] 11 12 13 14 15 16 17 18 19 20",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#boas-práticas-de-nomenclatura",
+    "href": "chapters/02-conhecendo-o-R.html#boas-práticas-de-nomenclatura",
+    "title": "4  Conhecendo o R",
+    "section": "7.4 Boas práticas de “nomenclatura”",
+    "text": "7.4 Boas práticas de “nomenclatura”\n\nEvitar o uso de MAIÚSCULAS\nEvitar o uso de nomes iguais a funções\n\nmean(), sum(), sd()\n\nEvitar acentos ou caracteres especiais\n\nEvitar o uso de Ç\n\nação &lt;- 1\nUsar nomes já existentes no seu ambiente de trabalho, porque o R irá sobrescrever\nRecomendamos:\n\nbancodedados &lt;- 1   # Ruim\nbanco_de_dados &lt;- 1 # Bom\ni. Ou seja, substituimos os ` ` por `_`",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#vetores",
+    "href": "chapters/02-conhecendo-o-R.html#vetores",
+    "title": "4  Conhecendo o R",
+    "section": "7.5 Vetores",
+    "text": "7.5 Vetores\nOs objetos no R podem comportar muitas informações de uma só vez. A mais frequente que nós utilizamos são os vetores. Eles são um conjunto de informações atribuídas em uma única linha. Os vetores podem ser:\n\nNuméricos:\n\n\nvetor_1 &lt;- 1:10 # Vetor que vai de 1 até 10\nvetor_2 &lt;- c(0.1, -5.0, 3.13, 100.1) \n\n\nTextuais (conhecidos como character):\n\n\nvetor_4 &lt;- \"Olá Mundo\"\nvetor_5 &lt;- c(\"Conjunto\", \"de\", \"texto\", \"em\", \"um\", \"vetor\")\n\nÉ possível verificar a classe dos vetores:\n\nclass(vetor_1) # integer (numero inteiro)\n\n[1] \"integer\"\n\nclass(vetor_2) # numeric (apresenta número decimal)\n\n[1] \"numeric\"\n\nclass(vetor_5) # character (texto)\n\n[1] \"character\"",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#pedindo-ajuda-para-o-r",
+    "href": "chapters/02-conhecendo-o-R.html#pedindo-ajuda-para-o-r",
+    "title": "4  Conhecendo o R",
+    "section": "7.6 Pedindo ajuda para o R",
+    "text": "7.6 Pedindo ajuda para o R\nNo slide anterior, vimos uma coisa estranha que ainda não apresentamos. O que é o c()?\nvetor_5 &lt;- c(\"Conjunto\", \"de\", \"texto\", \"em\", \"um\", \"vetor\")\nPara pedir ajuda ao R, basta ir no Console e digitar:\n?c\n?mean",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#manipulando-objetos",
+    "href": "chapters/02-conhecendo-o-R.html#manipulando-objetos",
+    "title": "4  Conhecendo o R",
+    "section": "7.7 Manipulando objetos",
+    "text": "7.7 Manipulando objetos\n\n# Criar o objeto\nmeu_objeto &lt;- c(0:50, 60, 70, 80, 90)\nmeu_objeto\n\n [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24\n[26] 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49\n[51] 50 60 70 80 90\n\n# \"Acessar\" o valor de determinado elemento do vetor\nmeu_objeto[1] # acessa o 1o elemento do vetor 'meu_objeto'\n\n[1] 0\n\nmeu_objeto[55] # acessa 55o elemento do vetor 'meu_objeto'\n\n[1] 90\n\n# Por meio dessa selecao de valores, podemos fazer operacoes:\nmeu_objeto[1] + meu_objeto[10] + meu_objeto[55] \n\n[1] 99\n\nmeu_objeto[1] + meu_objeto[10] * meu_objeto[55]\n\n[1] 810\n\nmeu_objeto[1] - meu_objeto[10] \n\n[1] -9\n\nmeu_objeto[10] ^ meu_objeto[3]\n\n[1] 81\n\n\n\n\n7.7.1 Funções\n\n# Calcular algumas estatisticas descritivas:\nmean(meu_objeto) # media\n\n[1] 28.63636\n\nmax(meu_objeto)  # maximo\n\n[1] 90\n\nmin(meu_objeto)  # minimo\n\n[1] 0\n\n# Guardar essas informacoes em objetos\nmedia  &lt;- mean(meu_objeto)\nmaximo &lt;- max(meu_objeto)\nminimo &lt;- min(meu_objeto)\n\n# Unir em um vetor\n## c significa concatenar\ndescritivas &lt;- c(media, maximo, minimo)\ndescritivas\n\n[1] 28.63636 90.00000  0.00000",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#operadores-lógicos",
+    "href": "chapters/02-conhecendo-o-R.html#operadores-lógicos",
+    "title": "4  Conhecendo o R",
+    "section": "7.8 Operadores lógicos",
+    "text": "7.8 Operadores lógicos\n\nOperadores lógicos no R\n\n\nOperador\nOperação\n\n\n\n\n!\nNegação (não)\n\n\n&\nE (avalia elemento a elemento)\n\n\n|\nOu (avalia elemento a elemento)\n\n\n&lt;\nMenor\n\n\n&lt;=\nMenor ou igual\n\n\n&gt;\nMaior\n\n\n&gt;=\nMaior ou igual\n\n\n!=\nDiferente\n\n\n&&\nE (avalia apenas o 1º elemento)\n\n\n||\nOu (avalia apenas o 1º elemento)",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#diretórios-de-trabalho",
+    "href": "chapters/02-conhecendo-o-R.html#diretórios-de-trabalho",
+    "title": "4  Conhecendo o R",
+    "section": "8.1 Diretórios de trabalho",
+    "text": "8.1 Diretórios de trabalho\nUm diretório de trabalho no R é o diretório (ou pasta) para onde o R se baseia quando precisamos interagir com os nossos arquivos.\n\nPara sabermos qual nosso diretóio atual, usa-se a função getwd()\n\n\ngetwd()\n\n[1] \"D:/OneDrive/Área de Trabalho/Projetos/cursos-oferecidos/2026-02-summer-intro-crime-analysis-R/chapters\"",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-conhecendo-o-R.html#projetos-no-rstudio-o-.rproj",
+    "href": "chapters/02-conhecendo-o-R.html#projetos-no-rstudio-o-.rproj",
+    "title": "4  Conhecendo o R",
+    "section": "8.2 Projetos no RStudio: o .RProj",
+    "text": "8.2 Projetos no RStudio: o .RProj\nA melhor forma de organizar os seus arquivos dentro do R é usando Projetos.\n\nQuando criamos um projeto no RStudio, ele cria uma pasta para nós e define essa pasta como diretório de trabalho (lembra do caminho relativo?).\n\nAlém disso, o RStudio também cria um arquivo chamado .RProj dentro da pasta.\nTrabalhar com projetos facilita a organização de arquivos e a reprodução do código.\n\nCanto superior esquerdo, clicar em File &gt; New Project...",
+    "crumbs": [
+      "Como analisar dados criminais?",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Conhecendo o `R`</span>"
     ]
   }
 ]
