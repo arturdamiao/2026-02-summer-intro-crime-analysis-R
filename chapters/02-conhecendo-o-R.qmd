@@ -159,14 +159,11 @@ O `RStudio` é um pai coruja 🦉. Isso significa que ele vai querer te lembrar 
 
 ## Como desativar?^[Atenção: se você nunca usar, nem vai sentir falta!] 
 
-::: columns
-::: {.column width = "50%"}
+
 
 ![](../images/desativar-rdata.png){width=90% fig-align="left"}
 
-:::
-
-::: {.column width = "50%"}
+:
 
 - Vá em `Tools -> Global options... -> General`
 
@@ -174,8 +171,6 @@ O `RStudio` é um pai coruja 🦉. Isso significa que ele vai querer te lembrar 
 
 > Se acostumar com sessões efêmeras não é uma tarefa fácil e um desconforto inicial é esperado. Pode ser que você ache entediante executar o mesmo código toda vez que abrir seu RStudio, mas é importante ter em mente que esse programa só está lá e pode ser executado inúmeras vezes porque o R não estará mais fazendo o [**seu**]{style="color:red;"} trabalho. [*Zen do R*, capítulo 2](https://curso-r.github.io/zen-do-r/rdata-rhistory.html) 
 
-:::
-::::
 
 
 
@@ -492,7 +487,7 @@ Ou um caminho **relativo** à uma pasta de referência.
 
 Usar caminhos relativos, ao invés de caminhos absolutos, garante que o código funcione em **qualquer** computador!
 :::
-::::
+
 
 
 ## Diretórios de trabalho
