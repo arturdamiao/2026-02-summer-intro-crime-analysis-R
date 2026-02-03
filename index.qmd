@@ -61,7 +61,7 @@ A participação dos alunos (perguntas, intervenções e afins) é encorajada. C
 **[Artur Damião](https://arturdamiao.com/about/)** <br>
 
 - Sociólogo **quantitativo**.
-- Mestrando em Sociologia (DS/USP) na Universidade de São Paulo.
+- Mestrando em Sociologia (FFLCH/USP) na Universidade de São Paulo.
 - Especialista (2026) em Estatística Computacional na Universidade Federal de Minas Gerais.
 - Hiperfoco em `R` e programação para as ciências sociais. <br>
 
