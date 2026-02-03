@@ -8,7 +8,7 @@
 
 <meta name="author" content="Artur Damião">
 
-<title>5&nbsp; Analisando dados da Secretaria de Segurança Pública – Análise de dados criminais usando linguagem R</title>
+<title>6&nbsp; Analisando dados da Secretaria de Segurança Pública – Análise de dados criminais usando linguagem R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/02-conhecendo-o-R.html" rel="prev">
+<link href="../chapters/02a-manipulacao-dados.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../custom.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed slimcontent quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/03-importando-dados.html">O caso de São Paulo</a></li><li class="breadcrumb-item"><a href="../chapters/03-importando-dados.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analisando dados da Secretaria de Segurança Pública</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/03-importando-dados.html">O caso de São Paulo</a></li><li class="breadcrumb-item"><a href="../chapters/03-importando-dados.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analisando dados da Secretaria de Segurança Pública</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -238,6 +238,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conhecendo o <code>R</code></span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02a-manipulacao-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aprendendo a manipular dados</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -252,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/03-importando-dados.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analisando dados da Secretaria de Segurança Pública</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analisando dados da Secretaria de Segurança Pública</span></span></a>
   </div>
 </li>
       </ul>
@@ -267,20 +273,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#importando-os-pacotes-no-r" id="toc-importando-os-pacotes-no-r" class="nav-link active" data-scroll-target="#importando-os-pacotes-no-r"><span class="header-section-number">5.1</span> Importando os pacotes no <code>R</code></a></li>
-  <li><a href="#nosso-conjunto-de-dados" id="toc-nosso-conjunto-de-dados" class="nav-link" data-scroll-target="#nosso-conjunto-de-dados"><span class="header-section-number">5.2</span> Nosso conjunto de dados</a>
+  <li><a href="#nosso-conjunto-de-dados" id="toc-nosso-conjunto-de-dados" class="nav-link active" data-scroll-target="#nosso-conjunto-de-dados"><span class="header-section-number">6.1</span> Nosso conjunto de dados</a>
   <ul>
-  <li><a href="#lendo-dados-direto-do-site-da-secretaria" id="toc-lendo-dados-direto-do-site-da-secretaria" class="nav-link" data-scroll-target="#lendo-dados-direto-do-site-da-secretaria"><span class="header-section-number">5.2.1</span> Lendo dados direto do site da Secretaria</a></li>
+  <li><a href="#lendo-dados-direto-do-site-da-secretaria" id="toc-lendo-dados-direto-do-site-da-secretaria" class="nav-link" data-scroll-target="#lendo-dados-direto-do-site-da-secretaria"><span class="header-section-number">6.1.1</span> Lendo dados direto do site da Secretaria</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/03-importando-dados.html">O caso de São Paulo</a></li><li class="breadcrumb-item"><a href="../chapters/03-importando-dados.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analisando dados da Secretaria de Segurança Pública</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/03-importando-dados.html">O caso de São Paulo</a></li><li class="breadcrumb-item"><a href="../chapters/03-importando-dados.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analisando dados da Secretaria de Segurança Pública</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analisando dados da Secretaria de Segurança Pública</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analisando dados da Secretaria de Segurança Pública</span></h1>
 </div>
 
 
@@ -310,110 +315,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Dentro do <code>R</code>, existem inúmeras formas de se importar um conjunto de dados. Os dados podem ter os mais diversos formatos (extensões):</p>
-<ul>
-<li><code>csv</code>, <em>comma separated values</em>;</li>
-<li><code>xlsx</code>, formato do Excel (ao baixar a planilha);</li>
-<li><code>rds</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, formato nativo do <code>R</code>;</li>
-<li><code>parquet</code>;</li>
-<li>muito mais!</li>
-</ul>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;É a forma mais recomendada, ao meu ver, de salvar objetos dentro do <code>R</code>. Um diferencial do <code>.rds</code> é que ele mantém a estrutura do objeto: ou seja, os atributos permanecem os mesmos.</p></div></div><section id="importando-os-pacotes-no-r" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="importando-os-pacotes-no-r"><span class="header-section-number">5.1</span> Importando os pacotes no <code>R</code></h2>
-<p>Como vimos, a primeira coisa a se fazer dentro de um script no <code>R</code> é fazer a importação dos pacotes (ou bibliotecas).</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Um pacote é uma “caixa de ferramentas” extra que você instala no <code>R</code> para ganhar novas funcionalidades. Ele reúne códigos, dados e documentação em um único lugar. O termo biblioteca (library) refere-se ao local (a pasta no seu computador) onde esses pacotes ficam guardados.</p>
-</div>
-</div>
-<p>Geralmente, precisamos, primeiramente, instalar um pacote com a função <code>install.packages</code> e então “carregá-lo” para nosso ambiente, com a função <code>library</code>. Carregar um pacote significa, basicamente, dizer ao <code>R</code> que queremos utilizar um conjunto de ferramentas na nossa sessão. Dito isso:</p>
-<ol type="1">
-<li>Sempre instala-se um pacote novo. Este processo só é feito uma vez, ou seja, utiliza-se a função <code>install.packages</code> apenas quando ainda não possuímos o pacote em nossa máquina.</li>
-<li>Após a primeira instalação, só é necessário instalar um pacote novamente caso ele tenha sido atualizado (lembra que a comunidade é ativa?). Caso não seja o caso, só é necessário “carregar” nosso pacote para a sessão.</li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Você pode ter notado que não utilizei as aspas (““) com a função <code>library</code>. Isso é opcional, você pode ou não utilizá-las.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Dica</span>Dica 1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>O pacote <code>pacman</code> permite que você faça, ao mesmo tempo, a instalação e o carregamento do pacote, com a função <code>p_load</code>. Ao invés de fazer, por exemplo:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>você pode fazer apenas:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">p_load</span>(tidyverse)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Isso é particularmente útil quando você precisa importar muitos pacotes!</p>
-</div>
-</div>
-<p>Caso você se esqueça de importar algum pacote, não se preocupe! É possível utilizar uma função de um pacote específico (desde que você tenha ele baixado no seu computador) sem precisar utilizar o <code>library(nome_do_pacote)</code> no começo do seu script. Ao especificar o nome do pacote e utilizar <code>::</code>, como demonstrado na <a href="#fig-dica-doispontos" class="quarto-xref">Figura&nbsp;<span>5.1</span></a>, é possível acessar a função desejada:</p>
-<div id="fig-dica-doispontos" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-dica-doispontos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/dica_pacote_doispontos.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dica-doispontos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5.1: Usando uma função sem carregar o pacote
-</figcaption>
-</figure>
-</div>
-<p>Agora, basta carregamos os pacaotes de interesse</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>              tidyverse, <span class="co"># pacotão com vários pacotes core </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>              rio,       <span class="co"># pacote que facilita a leitura de qualquer formato</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>              readxl     <span class="co"># pacote para ler no formato .xlsx</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>               )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="nosso-conjunto-de-dados" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="nosso-conjunto-de-dados"><span class="header-section-number">5.2</span> Nosso conjunto de dados</h2>
+<section id="nosso-conjunto-de-dados" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="nosso-conjunto-de-dados"><span class="header-section-number">6.1</span> Nosso conjunto de dados</h2>
 <p>Nosso conjunto de dados, para fins de exploração, serão as estatísticas dos dados criminais da Secretaria de Segurança Pública do Estado de São Paulo para o ano de 2025. Os dados estão disponíveis no <a href="https://www.ssp.sp.gov.br/estatistica">portal da SSP</a>.</p>
-<section id="lendo-dados-direto-do-site-da-secretaria" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="lendo-dados-direto-do-site-da-secretaria"><span class="header-section-number">5.2.1</span> Lendo dados direto do site da Secretaria</h3>
-<p>Utilizando a função <code>import</code> do pacote <code>rio</code>, é possível copiar a <code>url</code> e ler diretamente da página do site da SSP. Ao passarmos o <em>mouse</em> em cima do ano de 2025 nas <a href="https://www.ssp.sp.gov.br/estatistica/consultas">estatísticas de dados criminais da SSP</a>, podemos ver que, no final da página, nos é apresentado um link. Podemos copiar este link e lê-lo diretamente do <code>RStudio</code>, conforme apresentado na <a href="#fig-importacao-url" class="quarto-xref">Figura&nbsp;<span>5.2</span></a>:</p>
+<section id="lendo-dados-direto-do-site-da-secretaria" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="lendo-dados-direto-do-site-da-secretaria"><span class="header-section-number">6.1.1</span> Lendo dados direto do site da Secretaria</h3>
+<p>Utilizando a função <code>import</code> do pacote <code>rio</code>, é possível copiar a <code>url</code> e ler diretamente da página do site da SSP. Ao passarmos o <em>mouse</em> em cima do ano de 2025 nas <a href="https://www.ssp.sp.gov.br/estatistica/consultas">estatísticas de dados criminais da SSP</a>, podemos ver que, no final da página, nos é apresentado um link. Podemos copiar este link e lê-lo diretamente do <code>RStudio</code>, conforme apresentado na <a href="#fig-importacao-url" class="quarto-xref">Figura&nbsp;<span>6.1</span></a>:</p>
 <div id="fig-importacao-url" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-importacao-url-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/importaca_url_sitessp.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-importacao-url-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5.2: Importando URL
+Figura&nbsp;6.1: Importando URL
 </figcaption>
 </figure>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ssp_2025 <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"https://www.ssp.sp.gov.br/assets/estatistica/transparencia/spDados/SPDadosCriminais_2025.xlsx"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ssp_2025 <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"https://www.ssp.sp.gov.br/assets/estatistica/transparencia/spDados/SPDadosCriminais_2025.xlsx"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Visualindo as primeiras linhas:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ssp_2025)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ssp_2025)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
 </section>
 </section>
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -862,8 +790,8 @@ Figura&nbsp;5.2: Importando URL
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/02-conhecendo-o-R.html" class="pagination-link" aria-label="Conhecendo o `R`">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conhecendo o <code>R</code></span></span>
+      <a href="../chapters/02a-manipulacao-dados.html" class="pagination-link" aria-label="Aprendendo a manipular dados">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aprendendo a manipular dados</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

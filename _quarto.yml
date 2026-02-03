@@ -49,6 +49,7 @@ book:
       chapters:
         - chapters/01-introducao.qmd
         - chapters/02-conhecendo-o-R.qmd
+        - chapters/02a-manipulacao-dados.qmd
     - part: "O caso de São Paulo"
       chapters: 
         - chapters/03-importando-dados.qmd

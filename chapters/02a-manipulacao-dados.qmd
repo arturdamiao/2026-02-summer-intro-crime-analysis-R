@@ -1,0 +1,559 @@
+---
+title: "Aprendendo a manipular dados"
+
+
+date: 2026/02/03
+date-format: long
+---
+
+Dentro do `R`, existem inúmeras formas de se importar um conjunto de dados. Os dados podem ter os mais diversos formatos (extensões): 
+
+* `csv`, _comma separated values_;
+* `xlsx`, formato do Excel (ao baixar a planilha);
+* `rds`^[É a forma mais recomendada, ao meu ver, de salvar objetos dentro do `R`. Um diferencial do `.rds` é que ele mantém a estrutura do objeto: ou seja, os atributos permanecem os mesmos.], formato nativo do `R`;
+* `parquet`;
+* muito mais! 
+
+## Importando os pacotes no `R`
+
+Como vimos, a primeira coisa a se fazer dentro de um script no `R` é fazer a importação dos pacotes (ou bibliotecas). 
+
+:::callout-note
+Um pacote é uma "caixa de ferramentas" extra que você instala no `R` para ganhar novas funcionalidades. Ele reúne códigos, dados e documentação em um único lugar. O termo biblioteca (library) refere-se ao local (a pasta no seu computador) onde esses pacotes ficam guardados.
+:::
+
+Geralmente, precisamos, primeiramente, instalar um pacote com a função `install.packages` e então "carregá-lo" para nosso ambiente, com a função `library`. Carregar um pacote significa, basicamente, dizer ao `R` que queremos utilizar um conjunto de ferramentas na nossa sessão. Dito isso: 
+
+1. Sempre instala-se um pacote novo. Este processo só é feito uma vez, ou seja, utiliza-se a função `install.packages` apenas quando ainda não possuímos o pacote em nossa máquina. 
+2. Após a primeira instalação, só é necessário instalar um pacote novamente caso ele tenha sido atualizado (lembra que a comunidade é ativa?). Caso não seja o caso, só é necessário "carregar" nosso pacote para a sessão. 
+
+```{r}
+#| eval: false
+#| include: true
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+Você pode ter notado que não utilizei as aspas ("") com a função `library`. Isso é opcional, você pode ou não utilizá-las. 
+
+:::callout-tip 
+## Dica 1
+O pacote `pacman` permite que você faça, ao mesmo tempo, a instalação e o carregamento do pacote, com a função `p_load`. Ao invés de fazer, por exemplo: 
+
+```{r}
+#| eval: false
+#| include: true
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+você pode fazer apenas: 
+
+```{r}
+#| eval: false
+#| include: true
+p_load(tidyverse)
+```
+
+Isso é particularmente útil quando você precisa importar muitos pacotes!
+:::
+
+Caso você se esqueça de importar algum pacote, não se preocupe! É possível utilizar uma função de um pacote específico (desde que você tenha ele baixado no seu computador) sem precisar utilizar o `library(nome_do_pacote)` no começo do seu script. Ao especificar o nome do pacote e utilizar `::`, como demonstrado na @fig-dica-doispontos, é possível acessar a função desejada:
+
+![Usando uma função sem carregar o pacote](../images/dica_pacote_doispontos.png){#fig-dica-doispontos width=80% fig-align="center"}
+
+Agora, basta carregamos os pacaotes de interesse
+
+```{r}
+pacman::p_load(
+              tidyverse, # pacotão com vários pacotes core 
+              rio,       # pacote que facilita a leitura de qualquer formato
+              readxl,    # pacote para ler no formato .xlsx
+              janitor    # pacote para limpeza de dados
+               )
+```
+
+
+# Ambientação e importação de pacotes
+
+
+Feito isso, precisamos importar o conjunto de dados a serem trabalhados no encontro de hoje. Inicialmente, vamos trabalhar com um banco de dados de personagens de `starwars`. Esse banco está "embutido" no pacote `dplyr`. São bases de dados para fins didáticos! 
+
+```{r}
+dados <- dplyr::starwars
+```
+
+# Estatística descritiva e manipulação de dados
+
+## Utilizando o R Base
+
+Feita a importação dos dados, podemos visualizá-los com a função `head()`. 
+
+```{r}
+head(dados)
+```
+
+É possível, também, especificar quantas linhas queremos ver. Por exemplo, as 3 primeiras linhas:
+
+```{r}
+head(dados, 3)
+```
+
+Se eu quiser saber quais são as últimas linhas do meu banco de dados, posso usar a função `tail()`:
+
+```{r}
+tail(dados)
+```
+
+Para acessar alguma coluna dentro do meu objeto `dados`, basta usar o `$`. Com o `$`, posso usar a função `mean()` para saber a média de alguma variável de interesse:
+
+```{r}
+mean(dados$height)
+```
+
+Recebemos uma resposta estranha: `NA`. Existem 03 classes especiais de objetos:: `NA`, `NULL` e `NaN`. `NULL` significa que eu estou tentando acessar um elemento que não existe, logo, ele é *nulo*. `NaN` significa "Not a Number", que é autoexplicativo^[Se eu tento dividir 0 por 0, por exemplo, o resultado é `NaN`.]. Já o `NA` significa "Not Available", ou seja, não está disponível. O `NA` geralmente acontece quando fazemos medidas descritivas, como a média, e o nosso conjunto de dados tem algum valor faltante. Para contornar esse problema, usamos a seguinte opção dentro da função `mean`:
+
+```{r}
+mean(dados$height, na.rm = TRUE)
+```
+
+`na.rm` significa, basicamente, "na remove". Ou seja, remover os valores ausentes. Assim, consigo ver a média da altura dos personagens de Star Wars. 
+
+Também posso analisar o **desvio padrão** da altura dos personagens. O desvio padrão é uma medida de dispersão que mostra, em média, quanto os valores se distanciam da média de uma variável. 
+
+```{r}
+sd(dados$height, na.rm = TRUE)
+```
+
+## Operadores lógicos 
+
+
+| Operador | Operação                          |
+|----------|:----------------------------------|
+| `!`      | Negação (não)                     |
+| `&`      | E (avalia elemento a elemento)    |
+| `|`      | Ou (avalia elemento a elemento)   |
+| `<`      | Menor                             |
+| `<=`     | Menor ou igual                    |
+| `>`      | Maior                             |
+| `>=`     | Maior ou igual                    |
+| `!=`     | Diferente                         |
+| `&&`     | E (avalia apenas o 1º elemento)   |
+| `||`     | Ou (avalia apenas o 1º elemento)  |
+
+: Operadores lógicos no `R`
+
+Operadores lógicos no R são símbolos usados para fazer comparações e testar condições, retornando valores TRUE ou FALSE. É muito comum utilizarmos eles em filtros. Às vezes, queremos filtrar resultados dado uma condição específica. Veremos isso mais à frente. 
+
+## Encadeando funções com o operador pipe ` |>  `
+
+René Magritte tem uma pintura icônica, que inspirou um pacote no `R`. O pacote é chamado de `{magrittr}` e ele basicamente nos apresenta um conceito fantástico: o operador pipe. Basicamente, o pipe pega o lado esquerdo do seu código e alimenta o lado direito, encadeando as funções que você for utilizar. 
+
+![La trahison des images](https://modern-rstats.eu/assets/pas_une_pipe.png)
+
+Esse conceito ficará mais claro adiante, mas é importante saber da existência dele. Sempre que virmos um `|>` no nosso código, leremos ele como um "e então". Pode ser que o pipe apareça para você como `%>%`, mas isso não faz muita diferença agora. O atalho para o operador pipe é `CTRL + SHIFT + M`. 
+
+## Conhecendo o pacote `{dplyr}`
+
+O `{dplyr}` é um dos principais pacotes do `{tidyverse}`, e é nele que passaremos a maior parte do tempo. Isso porque, quando trabalhamos com dados, a maior parte da energia que gastamos é em "limpar" os dados. O `{dplyr}` tem alguns "verbos" que são os mais utilizados. Vamos conhecê-los. 
+
+Se quiser, por exemplo, verificar a **média da altura** dos personagens de Star Wars por **sexo**, podemos fazer da seguinte forma: 
+
+```{r}
+dados |> 
+  group_by(sex) |> 
+  summarise(media_altura = mean(height, na.rm = TRUE))
+```
+Lemos essa operação da seguinte forma: *"pegue o objeto dados, **e então** agrupe-o por sexo, **e então** calcule a média para cada subgrupo, omitindo os valores ausentes"*.   
+
+Sem o operador `|>`, teríamos de escrever o código da seguinte forma:
+
+```{r}
+summarise(group_by(dados, sex), mean(height, na.rm = TRUE))
+```
+
+Concordamos que o `|>` é uma mão na roda, né?
+
+Ainda, é possível **filtrar** informações de interesse primeiro. Por exemplo, se eu quero filtrar a altura de personagens cujo gênero é "masculine", basta inserirmos a função `filter()`.
+
+```{r}
+dados |> 
+  filter(gender == "masculine") |> 
+  group_by(sex) |> 
+  summarise(media_altura = mean(height, na.rm = TRUE))
+```
+Lemos essa operação da seguinte forma: *"pegue o objeto dados, **e então** filtre as ocorrências cuja variável `gender` seja igual a "masculine", **e então** agrupe-o por sexo, **e então** calcule a média para cada subgrupo, omitindo os valores ausentes"*.  
+
+Se precisarmos de mais medidas para além da média da altura, podemos adicionar várias funções conforme precisarmos:
+
+```{r}
+tabela_descritiva <- dados |> 
+  group_by(sex) |> 
+  summarise(media_altura = mean(height, na.rm = TRUE),
+            variancia_altura = var(height, na.rm = TRUE),
+            desvio_altura = sd(height, na.rm = TRUE),
+            n_obs = n()) # número de observações
+
+tabela_descritiva
+```
+
+A função `var()` me dá a variância da altura e a função `n()` me retorna o número de observações. Na nossa tabela descritiva, vimos que temos um grupo com apenas 01 indivíduo. Se quisermos, por exemplo, analisar os sexos que tem mais de um indivíduo, podemos filtrar:
+
+```{r}
+tabela_descritiva2 <- tabela_descritiva |> 
+  filter(n_obs > 1)
+
+tabela_descritiva2
+```
+
+### Filtrando `NAs`
+
+É um pouco cansativo ficar utilizando o argumento `na.rm = TRUE` o tempo todo para filtrar os NAs a cada operação. Antes de eliminarmos quaisquer valores ausentes, é preciso conhecer nosso banco de dados para tomar esta decisão. Isso porque, como alguns cientistas sociais dizem, um **não dado** também é **dado**! Muitos valores ausentes podem indicar, por exemplo, como as pessoas estão registrando (no caso, deixando de registrar) as ocorrências. Muitos `NAs` pode ser sinal de mal preenchimento de informações. 
+
+Voltando para nosso conjunto de dados, vamos ver quantas linhas temos na coluna `sex` que são `NA`: 
+
+```{r}
+dados |> 
+  filter(is.na(sex))
+```
+
+São apenas 04 linhas. Podemos ignorálas. Refazendo a análise da primeira tabela descritiva:
+
+```{r}
+dados |> 
+  filter(!is.na(sex)) |> 
+  group_by(sex) |> 
+  summarise(media_altura = mean(height, na.rm = TRUE),
+            variancia_altura = var(height, na.rm = TRUE),
+            desvio_altura = sd(height, na.rm = TRUE),
+            n_obs = n()) |> 
+  filter(n_obs > 1)
+```
+
+E se quisermos adicionar outra variável ao nosso grupo?
+
+```{r}
+dados |> 
+  filter(!is.na(sex)) |> 
+  group_by(sex, eye_color) |> 
+  summarise(media_altura = mean(height, na.rm = TRUE),
+            variancia_altura = var(height, na.rm = TRUE),
+            desvio_altura = sd(height, na.rm = TRUE),
+            n_obs = n()) |> 
+  filter(n_obs > 1)
+```
+
+Para essa primeira parte, está suficiente. Conhecemos as funções `filter()`, `group_by()` e `summarise()` do pacote `{dplyr}`. 
+
+# Usando o dataset `Gasoline`
+
+Primeiro, precisamos instalar o pacote `plm`. 
+
+```{r}
+#| eval: false
+
+install.packages("plm")
+```
+
+Agora, vamos carregar os dados que estão dentro do pacote:
+
+```{r}
+data(Gasoline, package = "plm")
+```
+
+Este conjunto de dados nos dá informações sobre consumo de gasolina para 18 países, entre 1960 e 1978. As variáveis são:
+
+| Variável   | Descrição                                                                 |
+|-----------|---------------------------------------------------------------------------|
+| country   | Fator com 18 níveis (países)                                              |
+| year      | Ano                                                                       |
+| lgaspcar  | Logaritmo do consumo de gasolina por carro                                |
+| lincomep  | Logaritmo da renda real per capita                                        |
+| lrpmg     | Logaritmo do preço real da gasolina                                       |
+| lcarpcap  | Logaritmo do estoque de carros per capita                                 |
+
+
+Quando carregamos este conjunto de dados, ele pertence à uma classe chamada `data.frame`. O `R` possui uma classe diferente e especial para conjunto de dados, que apresenta um melhor "print" no console, chamada `tibble`. Para convertemos este conjunto de dados (no formato `data.frame`) para `tibble`, executamos a seguinte operação: 
+
+```{r}
+gasoline <- as_tibble(Gasoline)
+```
+
+Adicionalmente, quero deixar todas os países da coluna `country` com letras minúsculas. Para isso: 
+
+```{r}
+gasoline <- gasoline |> 
+  mutate(country = tolower(country))
+```
+
+E se eu quiser filtrar os dados somente para o ano de 1972? Muito simples com a função `filter()`, sem utilizar o `|>`. 
+
+```{r}
+filter(gasoline, year == 1972)
+```
+
+Mas, é bom nos acostumarmos com o operador pipe, portanto: 
+
+```{r}
+gasoline |> 
+  filter(year == 1972)
+```
+
+Também é possível filtrar mais de uma condição. Para isso, podemos usar o operador `%in%`: 
+```{r}
+gasoline %>%
+  filter(year %in% seq(1969, 1973)) # sequência de anos entre 1969 a 1973
+```
+
+Ou 
+
+```{r}
+gasoline %>%
+  filter(year %in% 1969:1973) # sem a função seq()
+```
+Ainda, é possível utilizar a função auxiliadora^[Como o nome sugere, funções auxiliadores ajudam as funções principais. É importante notar que é possível usar funções dentro de funções.] `between()`:
+
+```{r}
+gasoline %>%
+  filter(between(year, 1969, 1973))
+```
+
+Também é possível selecionar anos não consecutivos: 
+
+```{r}
+gasoline %>%
+  filter(year %in% c(1969, 1973, 1977))
+```
+
+## Usando a função `select()`
+
+Enquanto a função `filter()` é utilizada para manter ou descartar as linhas do nosso conjunto de dados, a função `select()` nos permite **selecionar** colunas inteiras. 
+
+Para manter  colunas, podemos utilizar:
+
+```{r}
+gasoline %>%
+  select(country, year, lrpmg)
+```
+
+Para descartálas, utilizamos: 
+
+```{r}
+gasoline %>%
+  select(-country, -year, -lrpmg)
+```
+
+Ainda, é possível renomeá-las diretamente com a função `select()`: 
+
+```{r}
+gasoline %>%
+  select(country, date = year, lrpmg)
+```
+
+A função `rename()` faz exatamente a mesma coisa. Entretanto, ele não faz nenhum tipo de seleção, apenas renomea a coluna de interesse. 
+
+```{r}
+gasoline %>%
+  rename(date = year)
+```
+
+É possível utilizar a função `select()` para reordenar as colunas. Eu quero, por exemplo, que minhas três primeiras colunas do conjunto de dados sejam `year`, `country` e `lrpmg`, nesta ordem: 
+
+```{r}
+gasoline %>%
+  select(year, country, lrpmg, everything())
+```
+
+A função `everything()` é uma função auxiliadora, como notamos. Ainda, existem outras funções, como por exemplo `starts_with` e `ends_with`. Se eu quiser, por exemplo, selecionar apenas as colunas cujo nome começam com "l"? 
+
+```{r}
+gasoline %>%
+  select(starts_with("l"))
+```
+
+`ends_with` funciona de maneira similar, dá para pegar a ideia. Outra função auxiliadora interessante é a `contains()`: 
+
+```{r}
+gasoline %>%
+  select(country, year, contains("car"))
+```
+
+É possível encontrar uma lista de funções auxiliadoras na [documentação](https://tidyselect.r-lib.org/reference/language.html) do pacote. A documentação é uma espécie de manual, onde os desenvolvedores dos pacotes apresentam as principais funções, argumentos e exemplos de uso. Basta pesquisar por `nome do pacote + R` no Google que você acha as informações oficiais com bastante facilidade. A documentação do pacote [`{dplyr}`](https://dplyr.tidyverse.org/) é facilmente encontrada. ]
+
+Outro verbo/função similar ao `select()` é o `pull()`. Como o nome sugere, ele puxa as informações de uma coluna específica. Comparativamente: 
+
+```{r}
+gasoline %>%
+  select(lrpmg)
+```
+
+```{r}
+gasoline %>%
+  pull(lrpmg) %>%
+  head() # usando o head() porque temos muitos elementos neste conjunto de daods
+```
+
+## Agrupando informações com `group_by()`
+
+A função `group_by()` facilita a computação de estatísticas descritivas por grupos. Agrupando os dados por país: 
+
+```{r}
+gasoline %>%
+  group_by(country)
+```
+
+Não parece que mudou muita coisa, mas,  se observamos a segunda linha do output, veremos que:
+
+```{r}
+## # Groups:   country [18]
+```
+
+Isso significa que toda análise levará estes grupos em conta. Como vimos anteriormente com o `starwars`, é possível agrupar por mais de uma variável:
+
+```{r}
+gasoline %>%
+  group_by(country, year)
+```
+
+E também é possível desagrupar, com a função `ungroup()`. Basicamente, o `group_by` "marca" a tabela para que os cálculos sejam feitos por grupo, e o `ungroup()` volta para que você trabalhe com a tabela como um todo. 
+
+```{r}
+gasoline %>%
+  group_by(country, year) %>%
+  ungroup()
+```
+
+## Resumir estatísticas com `summarise()`
+
+Passado o básico, vamos avançar. Se eu quero computar o consume médio de gasolina por cada país, para todo o período, fazemos: 
+
+```{r}
+gasoline %>%
+  group_by(country) %>%
+  summarise(mean(lgaspcar))
+```
+
+Como vimos com o `starwars`, é possível renomear o nome da coluna da média que apareceu anteriormente. Para isso: 
+
+```{r}
+gasoline %>%
+  group_by(country) %>%
+  summarise(mean_gaspcar = mean(lgaspcar))
+```
+
+Além disso, podemos filtrar as ocorrências para um país de interesse: 
+
+```{r}
+gasoline %>%
+  group_by(country) %>%
+  summarise(mean_gaspcar = mean(lgaspcar)) %>%
+  filter(country == "france")
+```
+
+Com a função `summarise()`, posso computar várias estatísticas de uma vez: 
+
+```{r}
+gasoline %>%
+  group_by(country) %>%
+  summarise(mean_gaspcar = mean(lgaspcar),
+            sd_gaspcar = sd(lgaspcar),
+            max_gaspcar = max(lgaspcar),
+            min_gaspcar = min(lgaspcar))
+```
+
+E se quisermos "salvar" essas operações, basta atribuir a um objeto^[Lembrando que o sinal de atribuição mais apropriado é o `<- `. Para fazê-lo, o atalho é `ALT -` (alt menos)]: 
+
+```{r}
+desc_gasoline <- gasoline %>%
+  group_by(country) %>%
+  summarise(mean_gaspcar = mean(lgaspcar),
+            sd_gaspcar = sd(lgaspcar),
+            max_gaspcar = max(lgaspcar),
+            min_gaspcar = min(lgaspcar))
+```
+
+Questão: qual país tem o maior consumo médio de gasolina? 
+
+```{r}
+desc_gasoline %>%
+  filter(max(mean_gaspcar) == mean_gaspcar)
+```
+
+A função `max(mean_gaspcar)` calcula o maior valor da média de consumo de gasolina. Depois, fazemos uma comparação lógica para verificar se o valor naquela linha é igual ao valor máximo da coluna. Eu, particularmente, acho assim mais complicado de entender. Alternativametne, podemos usar: 
+
+```{r}
+desc_gasoline %>% 
+  slice_max(mean_gaspcar) # mais direto e reto!
+```
+
+Ou, também: 
+
+```{r}
+desc_gasoline %>% 
+  slice(which.max(mean_gaspcar))
+```
+
+A Túrquia tem o maior consumo médio de gasolina. E o valor mínimo? 
+
+```{r}
+desc_gasoline %>% 
+  slice_min(mean_gaspcar) # mais direto e reto!
+```
+
+## Adicionando colunas com o `mutate()` e `transmute()`
+
+A função `mutate()` adiciona ou transforma uma coluna num conjunto de dados. Por exemplo: 
+
+```{r}
+gasoline %>%
+  group_by(country) %>%
+  mutate(n())
+```
+
+Também é possível renomear a variável dentro da função `mutate()`: 
+
+```{r}
+gasoline %>%
+  group_by(country) %>%
+  mutate(count = n())
+```
+
+Ainda, é possível fazer qualquer outra operação: 
+
+```{r}
+gasoline |> 
+  group_by(country) |> 
+  mutate(consumo_renda = lgaspcar / lincomep)
+```
+
+A função `transmute()` opera da mesma forma que o mutate, mas retorna apenas a variável criada: 
+
+```{r}
+gasoline |> 
+  group_by(country) |> 
+  transmute(consumo_renda = lgaspcar / lincomep)
+```
+
+Exemplo gráfico: 
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+gasoline %>% 
+  ggplot(aes(x = year, y = lgaspcar, color = country, group = country)) +
+  geom_line() +
+  labs(
+    title = "Consumo de Gasolina por Carro (log) ao longo do tempo",
+    x = "Ano",
+    y = "Log do consumo de gasolina por carro",
+    color = "País"
+  ) +
+  theme_classic() +
+  theme(
+    legend.position = "right",
+    legend.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
+
